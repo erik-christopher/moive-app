@@ -3,9 +3,18 @@ fetch('https://calm-sleepy-link.glitch.me/movies')
     .then(data => {
         console.log(data)
         alert("Loading...")
-})
+    })
     .catch(err => {
-    console.log(err);
-    alert("sorry an error occurred please try again later")
-});
+        console.log(err);
+        alert("sorry an error occurred please try again later")
+    });
+
+
+$.ajax('https://calm-sleepy-link.glitch.me/movies')
+    .then(response => {
+        console.log(response);
+        listMovies(response);
+        return response;
+    });
+
 
