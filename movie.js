@@ -12,6 +12,7 @@ fetch('https://calm-sleepy-link.glitch.me/movies')
         alert("sorry an error occurred please try again later")
     });
 
+test
 
 // $.ajax('https://calm-sleepy-link.glitch.me/movies')
 //     .then(response => {
