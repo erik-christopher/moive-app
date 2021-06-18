@@ -12,13 +12,14 @@ let output = '';
 ///Card that renders for movies
 const renderPosts = (posts) => {
     posts.forEach(post => {
+        console.log(post)
         output += `
                         <div class="posts-list row">
                             <div class="card-body" data-id=${post.id}>
                                     <img src="${post.poster}">
-                                    <h5 class="card-title">${post.title} ${post.year}</h5>
-                                    <h6 class="card-subtitle">${post.actors}</h6
-                                    <p class="card-text">${post.plot}</p>
+                                    <h5 class="card-title">${post.title}</h5>
+<!--                                    // <h6 class="card-subtitle">${post.actor}</h6-->
+                                    <p class="card-text">${post.body}</p>
                                     <a href="#" class="card-link" id="edit-post">Edit</a>
                                     <a href="#" class="card-link" id="delete-post">Delete</a>
                             </div>
@@ -26,13 +27,15 @@ const renderPosts = (posts) => {
                    `;
     })
     postsList.innerHTML = output;
-
+    console.log(posts);
 }
 
 
 fetch('https://calm-sleepy-link.glitch.me/movies')
     .then(response => response.json())
-    .then(data => renderPosts(data))
+    .then(data => {
+        console.log(data)
+        renderPosts(data)})
     .then(setTimeout(function () {
         $('#heart').hide();
     }, 2000))
@@ -40,10 +43,10 @@ fetch('https://calm-sleepy-link.glitch.me/movies')
 postsList.addEventListener('click', (e) => {
     e.preventDefault();
     let delButtonPressed = e.target.id == 'delete-post'
-    let editButtonPressed = e.target.id === 'edit-post'
+    let editButtonPressed = e.target.id == 'edit-post'
 
     let id = e.target.parentElement.dataset.id
-
+    console.log(id)
     ////Delete- remove existing post
     if (delButtonPressed) {
         fetch(`${URL}/${id}` , {
@@ -54,17 +57,20 @@ postsList.addEventListener('click', (e) => {
     }
     /// Edit Button
     if(editButtonPressed) {
+        console.log(id)
         const parent = e.target.parentElement;
         let titleContent = parent.querySelector(".card-title").textContent;
+
         console.log(titleContent)
-        // let bodyContent = parent.querySelector(".card-text").textContent;
-        // console.log(bodyContent)
+        let bodyContent = parent.querySelector(".card-text").textContent;
+        console.log(bodyContent)
         titleValue.value = titleContent;
-        // bodyValue.value = bodyContent;
+        bodyValue.value = bodyContent;
     }
     ////upadate existing code
 
     btnSubmit.addEventListener('click', () =>{
+        console.log(id)
         fetch(`${URL}/${id}`, {
             method: "PATCH",
             headers: {
@@ -85,24 +91,44 @@ postsList.addEventListener('click', (e) => {
 
 //// Add new POST
 addPostForm.addEventListener("submit", (e) => {
+    console.log()
     e.preventDefault();
-    fetch(URL, {
-        method: "POST",
+
+    const moviePost = {title: titleValue.value, body: bodyValue.value};
+    const url = 'https://calm-sleepy-link.glitch.me/movies';
+    const options = {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            title: titleValue.value,
-            body: bodyValue.value
-        })
-    })
-        .then(res => res.json())
-        .then(data => {
-            const dataArr = [];
-            dataArr.push(data);
-            renderPosts(dataArr);
-        })
+        body: JSON.stringify(moviePost),
+    };
+    fetch(url, options)
+        .then(/* post was created successfully */console.log('success'))
+        .catch(/* handle errors */);
+
+
+    // fetch(URL, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         title: titleValue.value,
+    //         body: bodyValue.value
+    //     })
+    //
+    // })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log(data);
+    //         const dataArr = [];
+    //         dataArr.push(data);
+    //         console.log(dataArr)
+    //         renderPosts(dataArr);
+    //     })
 })
+
 
 
 
