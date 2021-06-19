@@ -91,7 +91,6 @@ postsList.addEventListener('click', (e) => {
 
 //// Add new POST
 addPostForm.addEventListener("submit", (e) => {
-    console.log()
     e.preventDefault();
 
     const moviePost = {title: titleValue.value, body: bodyValue.value};
@@ -104,7 +103,13 @@ addPostForm.addEventListener("submit", (e) => {
         body: JSON.stringify(moviePost),
     };
     fetch(url, options)
-        .then(/* post was created successfully */console.log('success'))
+        .then(/* post was created successfully */
+            response => response.json())
+        .then(() => {
+            console.log('post submit was a success')
+            location.reload()
+        })
+
         .catch(/* handle errors */);
 
 
