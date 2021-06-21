@@ -17,6 +17,7 @@
                 transform: rotate(45deg);
                 transform-origin: 40px 40px;
             }
+
             .lds-heart div {
                 top: 32px;
                 left: 32px;
@@ -26,6 +27,7 @@
                 background: #fcf;
                 animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
             }
+
             .lds-heart div:after,
             .lds-heart div:before {
                 content: " ";
@@ -35,14 +37,17 @@
                 height: 32px;
                 background: #fcf;
             }
+
             .lds-heart div:before {
                 left: -24px;
                 border-radius: 50% 0 0 50%;
             }
+
             .lds-heart div:after {
                 top: -24px;
                 border-radius: 50% 50% 0 0;
             }
+
             @keyframes lds-heart {
                 0% {
                     transform: scale(0.95);
@@ -64,61 +69,201 @@
                 }
             }
 
+            main {
+                background-color: gray;
+            }
+
+            footer {
+                background-color: darkgray;
+            }
+
+            header {
+                background-color: orange;
+            }
+
 
         </style>
     </head>
     <body>
-        <div class="container">
-            <div class="row-md-3">
-                <div class="col-md-6">
-                    <h3>
-                        Movies!
-                    </h3>
-                    <form class="add-post-form">
-                        <div class="form-group">
-                            <div>
-                                <label for="title">Movie Title</label>
-                                <input type="text" class="form-control" id="title-value">
-                            </div>
-                            <div class="form-group">
-                                <label for="body">Plot</label>
-                                <input type="text" class="form-control" id="body-value">
-                            </div>
+        <div>
+            <header>
+                <nav class="navbar navbar-expand-md">
+                    <div class="container">
+                        <h3>YOURMOVIEDB</h3>
+                    </div>
+                    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                        <div class="collapse-body">
+                            <ul class="navbar navbar-nav navbar-left">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">Add</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a id="exploreDropdown" href="#" role="button" class="nav-link dropdown-toggle">Explore</a>
+                                    <div role="menu" aria-labelledby="exploreDropdown" class="dropdown-menu">
+                                        <a class="dropdown-item hidden-xs">Explore</a>
+                                        <a href="" class="dropdown-item">Recently Added</a>
+                                        <a href="" class="dropdown-item">Movies</a>
+                                        <a href="" class="dropdown-item">Tv</a>
+                                        <a href="" class="dropdown-item">Random Title</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="" class="nav-link">Community</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a id="aboutDropdown" href="#" role="button"
+                                       class="nav-link dropdown-toggle">About</a>
+                                    <div role="menu" aria-labelledby="exploreDropdown" class="dropdown-menu">
+                                        <a href="" class="dropdown-item">Contact</a>
+                                        <a href="" class="dropdown-item">Donate</a>
+                                        <a href="" class="dropdown-item">Privacy Policy</a>
+                                    </div>
+                                </li>
 
-                            <button class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-                    <div class="lds-heart" id="heart"><div></div></div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row-md-3">
-                <div class="col-md-6">
-                    <div class="posts-list row">
-                        <div class="card-body ">
-                            <h5 class="card-title">card title</h5>
-                            <h6 class="card-subtitle">subtitle</h6>
-                            <p class="card-text">text</p>
-                            <a href="#" class="card-link">Edit</a>
-                            <a href="#" class="card-link">Delete</a>
+                            </ul>
+                            <ul class="navbar navbar-nav navbar-right">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">Sign Up</a>
+                                </li>
+                                <div class="searchBar">
+                                    <form role="search" method="get" action="search" class="search form-inline">
+                                        <input type="text" name="query" placeholder="Search"
+                                               class="form-control typehead">
+                                    </form>
+                                </div>
+                            </ul>
                         </div>
                     </div>
+                </nav>
+            </header>
+            <main>
+                <section class="jumbo home" style="height: auto !important;">
+                    <div class="body" style="height: auto !important;"></div>
+                    <h1>Welcome to our internet catalog of the greatest movies known to man!</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada scelerisque nisl a
+                        sollicitudin. Nunc maximus, arcu a dapibus placerat, justo velit convallis nisi, quis bibendum
+                        turpis nunc quis ante. Fusce auctor turpis ut semper iaculis. Morbi vehicula elit nisl, sed
+                        mattis dui imperdiet id. Maecenas dictum turpis non erat placerat, ut euismod velit malesuada.
+                        Nunc non molestie dui. In faucibus nulla eu cursus tristique. Sed eu eros vitae lorem rhoncus
+                        malesuada. Praesent sed lorem ut dolor blandit sodales.
 
+                        Duis eu velit id massa venenatis maximus. Mauris hendrerit lorem at aliquet dictum. Lorem ipsum
+                        dolor sit amet, consectetur adipiscing elit. Cras mi ante, ultricies eu porttitor quis, dapibus
+                        quis diam. Aliquam dictum blandit ligula, vitae consectetur leo pretium quis. Aliquam mauris
+                        purus, porttitor sit amet finibus in, hendrerit vitae nisi. Fusce et fringilla erat. Quisque
+                        feugiat nisi lacus, in maximus ligula vehicula in. In auctor vel nisi nec consectetur.
+
+                    </p>
+                </section>
+                <div class="container">
+                    <div>
+                        <div class="col-md-6">
+                            <h3 id="title">
+                                Add great titles here
+                            </h3>
+                            <form class="add-post-form">
+                                <div class="form-group">
+                                    <div>
+                                        <label for="title-value">Movie Title</label>
+                                        <input type="text" class="form-control" id="title-value">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="body-value">Plot</label>
+                                        <input type="text" class="form-control" id="body-value">
+                                    </div>
+
+                                    <button class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                            <div class="lds-heart" id="heart">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="container">
+                    <div class="row-md-3">
+                        <div class="col-md-6">
+                            <div class="posts-list row">
+                                <div class="card-body ">
+                                    <h5 class="card-title">card title</h5>
+                                    <h6 class="card-subtitle">subtitle</h6>
+                                    <p class="card-text">text</p>
+                                    <a href="#" class="card-link">Edit</a>
+                                    <a href="#" class="card-link">Delete</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div class="body">
+                    <div id="disclaimer">
+                        <strong>Copyright</strong>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada scelerisque nisl a
+                            sollicitudin. Nunc maximus, arcu a dapibus placerat, justo velit convallis nisi, quis
+                            bibendum turpis nunc quis ante. Fusce auctor turpis ut semper iaculis. Morbi vehicula elit
+                            nisl, sed mattis dui imperdiet id. Maecenas dictum turpis non erat placerat, ut euismod
+                            velit malesuada. Nunc non molestie dui. In faucibus nulla eu cursus tristique. Sed eu eros
+                            vitae lorem rhoncus malesuada. Praesent sed lorem ut dolor blandit sodales.
+
+                            Duis eu velit id massa venenatis maximus. Mauris hendrerit lorem at aliquet dictum. Lorem
+                            ipsum dolor sit amet, consectetur adipiscing elit. Cras mi ante, ultricies eu porttitor
+                            quis, dapibus quis diam. Aliquam dictum blandit ligula, vitae consectetur leo pretium quis.
+                            Aliquam mauris purus, porttitor sit amet finibus in, hendrerit vitae nisi. Fusce et
+                            fringilla erat. Quisque feugiat nisi lacus, in maximus ligula vehicula in. In auctor vel
+                            nisi nec consectetur.
+
+
+                            cool my guy.</p>
+                    </div>
+                    <div class="footer-links" id="help-section">
+                        <strong>Help</strong>
+                        <p>
+                            <a href="">About</a>
+                            <a href="Contact">Contact</a>
+                            <a href="Donate">Donate</a>
+                            <a href="Privacy Policy">Privacy Policy</a>
+                        </p>
+                    </div>
+                    <div class="footer-links" id="explore-section">
+                        <strong>Explore</strong>
+                        <p>
+                            <a href="Movies">Movies</a>
+                            <a href="Tv">Tv</a>
+                            <a href="Recently Added">Recently Added</a>
+                            <a href="Search">Search</a>
+                        </p>
+                    </div>
+                    <div class="footer-links" id="extra-section">
+                        <strong>Extra</strong>
+                        <p>
+                            <a href="Movie Posters">Movie Posters</a>
+                            <a href="Lobby Cards"> Lobby Cards</a>
+                            <a href="Alternative">Alternative Movie Posters</a>
+                            <a href="IMDB Top 100">IMDB Top 100</a>
+                        </p>
+                    </div>
+                </div>
+            </footer>
         </div>
 
 
-                <div id="movieContent" class="container-fluid"></div>
+        <div id="movieContent" class="container-fluid"></div>
 
-                <script src="https://code.jquery.com/jquery-2.2.4.js"
-                        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-                        crossorigin="anonymous"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-                        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-                        crossorigin="anonymous"></script>
-                <script src="movie.js"></script>
-                <script src="jquery-movie.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.js"
+                integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+                crossorigin="anonymous"></script>
+        <script src="movie.js"></script>
+        <script src="jquery-movie.js"></script>
     </body>
+
 </html>
