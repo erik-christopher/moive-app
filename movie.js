@@ -6,13 +6,15 @@ const titleValue = document.getElementById('title-value');
 const bodyValue = document.getElementById('body-value');
 const btnSubmit = document.querySelector('#the-button')
 
-let output = '';
+
 
 
 ///Card that renders for movies
+
 const renderPosts = (posts) => {
+    let output = '';
     posts.forEach(post => {
-        console.log(post)
+
         output += `
                         <div class="posts-list">
                             <div class="card-body" data-id=${post.id}>
@@ -27,50 +29,55 @@ const renderPosts = (posts) => {
                    `;
     })
     postsList.innerHTML = output;
-    console.log(posts);
+    console.log(postsList);
 }
 
+getAllMovies();
+function getAllMovies() {
 
-fetch('https://calm-sleepy-link.glitch.me/movies')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        renderPosts(data)})
-    .then(setTimeout(function () {
-        $('#heart').hide();
-    }, 2000))
+    fetch('https://calm-sleepy-link.glitch.me/movies')
+        .then(response => response.json())
+        .then(data => {
+
+            renderPosts(data)
+        })
+        .then(setTimeout(function () {
+            $('#heart').hide();
+        }, 2000))
+};
 
 postsList.addEventListener('click', (e) => {
     e.preventDefault();
+
     let delButtonPressed = e.target.id == 'delete-post'
     let editButtonPressed = e.target.id == 'edit-post'
 
     let id = e.target.parentElement.dataset.id
-    console.log(id)
+
     ////Delete- remove existing post
     if (delButtonPressed) {
         fetch(`${URL}/${id}` , {
             method: "DELETE",
         })
-            .then(res => res.json())
-            .then(() => location.reload())
+            // .then(res => res.json())
+            .then(() => getAllMovies())
     }
     /// Edit Button
     if(editButtonPressed) {
-        console.log(id)
+
         const parent = e.target.parentElement;
         let titleContent = parent.querySelector(".card-title").textContent;
 
-        console.log(titleContent)
+
         let bodyContent = parent.querySelector(".card-text").textContent;
-        console.log(bodyContent)
+
         titleValue.value = titleContent;
         bodyValue.value = bodyContent;
     }
     ////upadate existing code
 
     btnSubmit.addEventListener('click', () =>{
-        console.log(id)
+
         fetch(`${URL}/${id}`, {
             method: "PATCH",
             headers: {
@@ -82,7 +89,7 @@ postsList.addEventListener('click', (e) => {
             })
         })
             .then(res => res.json())
-            .then(() => location.reload())
+            .then(() => getAllMovies())
     })
 
 
@@ -106,8 +113,8 @@ addPostForm.addEventListener("submit", (e) => {
         .then(/* post was created successfully */
             response => response.json())
         .then(() => {
-            console.log('post submit was a success')
-            location.reload()
+
+            getAllMovies();
         })
 
         .catch(/* handle errors */);
