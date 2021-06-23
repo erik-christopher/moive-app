@@ -81,3 +81,47 @@ header {
 footer {
     background-color: orange;
 }
+
+img {
+    width: 200px;
+    height: 250px;
+}
+#titles-box {
+    display: flex;
+    justify-content: center;
+}
+#desktop-presentation {
+    display: flex;
+    justify-content: center;
+}
+#desktop-button {
+    display: flex;
+    justify-content: center;
+}
+h1 {
+    text-align: center;
+}
+
+#first-posters {
+    display: flex;
+    overflow: auto;
+    white-space: nowrap;
+}
+.row {
+    flex-wrap: nowrap;
+}
+h3 {
+    font-family: 'Rubik', sans-serif;
+}
+
+footer {
+    font-size: 10px;
+}
+label {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+}
+#main-header {
+    font-size: 60px;
+}

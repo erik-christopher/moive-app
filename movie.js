@@ -4,7 +4,7 @@ const postsList = document.querySelector('.posts-list');
 const addPostForm = document.querySelector('.add-post-form');
 const titleValue = document.getElementById('title-value');
 const bodyValue = document.getElementById('body-value');
-const btnSubmit = document.querySelector('.btn')
+const btnSubmit = document.querySelector('#the-button')
 
 let output = '';
 
@@ -14,7 +14,7 @@ const renderPosts = (posts) => {
     posts.forEach(post => {
         console.log(post)
         output += `
-                        <div class="posts-list row">
+                        <div class="posts-list">
                             <div class="card-body" data-id=${post.id}>
                                     <img src="${post.poster}">
                                     <h5 class="card-title">${post.title}</h5>
@@ -113,34 +113,8 @@ addPostForm.addEventListener("submit", (e) => {
         .catch(/* handle errors */);
 
 
-    // fetch(URL, {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify({
-    //         title: titleValue.value,
-    //         body: bodyValue.value
-    //     })
-    //
-    // })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data);
-    //         const dataArr = [];
-    //         dataArr.push(data);
-    //         console.log(dataArr)
-    //         renderPosts(dataArr);
-    //     })
+
 })
 
-
-
-
-
-    // .catch(err => {
-    //     console.log(err);
-    //     alert("sorry an error occurred please try again later")
-    // });
 
 
